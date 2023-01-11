@@ -1,61 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 body {
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  background-color: #EEF9BF;
 }
-.jogo{
-    background-color: #EEF9BF;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.game{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.titulo {
-    margin-top: 40px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 56px;
-    line-height: 66px;
-    letter-spacing: -0.004em;
-    color: #75B79E;
+.title {
+  text-align: center;
+  margin-top: 40px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 66px;
+  letter-spacing: -0.004em;
+  color: #75B79E;
 }
 /* Cartas com feito de virada 3d*/
-.cartas {
-    margin: 122px;
-    margin-top: 13px;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+.cards {
+  margin: 122px;
+  margin-top: 13px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
-.carta {
-    margin-top: 34px;
-    width: 200px;
-    height: 250px;
-    position: relative;
-  }
-  .frente {
-    width: 100%;
-    height: 100%;
-    background-color: #A7E9AF;
-    border-radius: 10px;
-    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    backface-visibility: hidden;
-    transition: all .5s;
-    transform-style: preserve-3d;
-  }
-  .frente img {
-    width: 100px;
-    height: 100px;
+.card {
+  margin-top: 34px;
+  width: 200px;
+  height: 250px;
+  position: relative;
 }
-  .verso {
-    transform: rotateY(180deg);
-  }
-  .carta:hover .verso {
-    transform: rotateY(0deg);
-  }
-  .carta:hover .verso {
-    transform: rotateY(-180deg);
-  }
+.card img {
+  width: 100px;
+  height: 100px;
+}
+.face {
+   width: 100%;
+  height: 100%;
+  background-color: #A7E9AF;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: all .5s;
+  transform-style: preserve-3d;
+}
+.back-face {
+  transform: rotateY(180deg);
+}
+.card:hover .back-face {
+  transform: rotateY(0deg);
+}
+.card:hover .front-face {
+  transform: rotateY(-180deg);
+}
