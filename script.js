@@ -31,12 +31,12 @@ function criarCartas(){
     let indice = 0 
     while(indice < quantidadeCartas){
         cartasEscolhidas.push(
-            `<li class="card" onclick="spinCard(this)">
+            `<li class="card" data-test="card" onclick="spinCard(this)">
                 <div class="front-face face">
-                    <img src="./midia/back.png" alt="Papagaio verde">
+                    <img data-test="face-down-image" src="./midia/back.png" alt="Papagaio verde">
                 </div>
                 <div class="back-face face">
-                    <img src= ${cartas[indice]} alt="Papagaio em gif">
+                    <img data-test="face-up-image" src= ${cartas[indice]} alt="Papagaio em gif">
                 </div>
             </li>`);
         indice++;
@@ -61,6 +61,10 @@ function spinCard(gira){
     document.querySelector(".card");
     gira.classList.toggle("virar");
 }
+//Comparar cartas
+function comparar(){
+    if(){}
+}
 // Contar o tempo
 let tempo = 0;
 function contarTempo(){
@@ -68,7 +72,7 @@ function contarTempo(){
 }
 function aumentar(){
     tempo++;
-    document.querySelector(".time").innerHTML = tempo;
+    document.querySelector(".timer").innerHTML = tempo;
 }
 // Recomeçar o jogo
 function recomeço(){
