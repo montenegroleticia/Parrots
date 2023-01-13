@@ -76,9 +76,12 @@ function aumentar(){
 }
 // Recomeçar o jogo
 function recomeço(){
-    alert("Você ganhou com %{jogadas} jogadas!");
+    alert("Você ganhou com %{jogadas} jogadas! A duração do jogo foi de %{tempo} segundos!");
     const reiniciar = prompt("Deseja reiniciar a partida? *sim/não*");
-    if ( reiniciar === "sim"){
+    while ( reiniciar !== "sim" && reiniciar !== "não"){
+        reiniciar = prompt("Deseja reiniciar a partida? *sim/não*");
+    }
+    if (reiniciar === "sim"){
         quantidadeCartas = prompt("Com quantas cartas você quer jogar? *de 4-14, apenas números pares*");
         quantidade();
     }
