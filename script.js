@@ -68,13 +68,14 @@ function contarTempo(){
 }
 function aumentar(){
     tempo++;
-    document.querySelector(".contador").innerHTML = tempo;
+    document.querySelector(".time").innerHTML = tempo;
 }
 // Recomeçar o jogo
 function recomeço(){
-    alert("Você ganhou com %{} jogadas!");
+    alert("Você ganhou com %{jogadas} jogadas!");
     const reiniciar = prompt("Deseja reiniciar a partida? *sim/não*");
     if ( reiniciar === "sim"){
-        location.reload();
+        quantidadeCartas = prompt("Com quantas cartas você quer jogar? *de 4-14, apenas números pares*");
+        quantidade();
     }
 }
