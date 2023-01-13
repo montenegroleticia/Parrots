@@ -1,4 +1,4 @@
-//Array de cartas
+// Array de cartas
 const cartas = 
 ["./midia/bobrossparrot.gif", 
 "./midia/bobrossparrot.gif",
@@ -15,9 +15,9 @@ const cartas =
 "./midia/unicornparrot.gif",
 "./midia/unicornparrot.gif"];
 const cartasEscolhidas = [];
-//Debugger para controlar pelo console
+// Debugger para controlar pelo console
 debugger
-//Perguntando quantas cartas o jogador quer
+// Perguntando quantas cartas o jogador quer
 let quantidadeCartas = prompt("Com quantas cartas você quer jogar? *de 4-14, apenas números pares*");
 quantidade();
 function quantidade(){
@@ -26,17 +26,17 @@ function quantidade(){
     }   
     criarCartas();
 }
-//Criar cartas
+// Criar cartas
 function criarCartas(){
     let indice = 0 
     while(indice < quantidadeCartas){
         cartasEscolhidas.push(
             `<li class="card" onclick="spinCard(this)">
-                <div class="front-face face">
-                    <img src="./midia/back.png" alt="Papagaio verde">
-                </div>
                 <div class="back-face face">
                     <img src= ${cartas[indice]} alt="Papagaio em gif">
+                </div>
+                <div class="frente face">
+                    <img src="./midia/back.png" alt="Papagaio verde">
                 </div>
             </li>`);
         indice++;
@@ -44,32 +44,37 @@ function criarCartas(){
     distribuirCartas();
 }
 function distribuirCartas(){
+    let contador = 0;
     cartasEscolhidas.sort(comparador);
     const ul = document.querySelector("ul");
-    ul.innerHTML = ul.innerHTML + cartasEscolhidas;
+    while(contador < cartasEscolhidas.length){
+        ul.innerHTML = ul.innerHTML + cartasEscolhidas[contador];
+        contador++;
+    }
+    contarTempo();
 }
 function comparador() { 
 	return Math.random() - 0.5; 
 }
-/*Virar carta
+// Virar carta
 function spinCard(girar){
-    alert('oi');
-}*/
+    document.querySelector("div .frente");
+    girar.classList.toggle("front-face");
+}
+// Contar o tempo
+let tempo = 0;
+function contarTempo(){
+    intervalo = setInterval(aumentar, 1000);
+}
+function aumentar(){
+    tempo++;
+    document.querySelector(".contador").innerHTML = tempo;
+}
 // Recomeçar o jogo
 function recomeço(){
     alert("Você ganhou com %{} jogadas!");
     const reiniciar = prompt("Deseja reiniciar a partida? *sim/não*");
     if ( reiniciar === "sim"){
-        quantidadeCartas = prompt("Com quantas cartas você quer jogar? *de 4-14, apenas números pares*");
-        quantidade();
+        location.reload();
     }
 }
-/*
-<li class="card" onclick="spinCard(this)">
-                  <div class="front-face face">
-                    <img src="./midia/back.png" alt="Papagaio verde">
-                  </div>
-                  <div class="back-face face">
-                    <img src="./midia/unicornparrot.gif" alt="Papagaio com cabelo preto">
-                  </div>
-                </li> */

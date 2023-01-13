@@ -2,6 +2,7 @@
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #EEF9BF;
+  box-sizing: border-box;
 }
 .game{
   display: flex;
@@ -18,6 +19,20 @@ body {
   line-height: 66px;
   letter-spacing: -0.004em;
   color: #75B79E;
+}
+.contador{
+  width: 46px;
+  width: 47px;
+  color: #86BD8D;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+  letter-spacing: -0.004em;
+  position: fixed;
+  top: 16px;
+  right: 30px;
 }
 /* Cartas com feito de virada 3d*/
 ul {
@@ -51,14 +66,19 @@ ul {
   transition: all .5s;
   transform-style: preserve-3d;
 }
+.front-face .face{
+  transform: rotateY(180deg);
+}
+
+/*
 .back-face {
   transform: rotateY(180deg);
 }
-.card:hover .back-face {
+.back-face {
   transform: rotateY(0deg);
 }
-.card:hover .front-face {
+.front-face {
+  opacity: 1;
   transform: rotateY(-180deg);
 }
-
 /* Fazendo no onclick */
