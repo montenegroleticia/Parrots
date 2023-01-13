@@ -32,11 +32,11 @@ function criarCartas(){
     while(indice < quantidadeCartas){
         cartasEscolhidas.push(
             `<li class="card" onclick="spinCard(this)">
+                <div class="front-face face">
+                    <img src="./midia/back.png" alt="Papagaio verde">
+                </div>
                 <div class="back-face face">
                     <img src= ${cartas[indice]} alt="Papagaio em gif">
-                </div>
-                <div class="frente face">
-                    <img src="./midia/back.png" alt="Papagaio verde">
                 </div>
             </li>`);
         indice++;
@@ -57,9 +57,9 @@ function comparador() {
 	return Math.random() - 0.5; 
 }
 // Virar carta
-function spinCard(girar){
-    document.querySelector("div .frente");
-    girar.classList.toggle("front-face");
+function spinCard(gira){
+    document.querySelector(".card");
+    gira.classList.toggle("virar");
 }
 // Contar o tempo
 let tempo = 0;
