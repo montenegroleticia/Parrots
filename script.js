@@ -56,15 +56,6 @@ function distribuirCartas(){
 function comparador() { 
 	return Math.random() - 0.5; 
 }
-// Virar carta
-function spinCard(gira){
-    document.querySelector(".card");
-    gira.classList.toggle("virar");
-}
-//Comparar cartas
-function comparar(){
-    if(){}
-}
 // Contar o tempo
 let tempo = 0;
 function contarTempo(){
@@ -74,15 +65,51 @@ function aumentar(){
     tempo++;
     document.querySelector(".timer").innerHTML = tempo;
 }
+// Virar cartas
+let escolha1, escolha2;
+let jogadas = 0;
+function spinCard(gira){
+    jogadas++;
+    if (escolha1 === undefined){
+        escolha1 = gira;
+        gira.classList.add("virar");
+    } else if (escolha2 === undefined){
+        escolha2 = gira;
+        gira.classList.add("virar");
+        setTimeout(comparar, 1000);
+    }
+}
+// Comparar cartas
+let carta1, carta2;
+function comparar(){
+    carta1 = escolha1.classList.value;
+    carta2 = escolha2.classList.value;
+    if(carta1 !== carta2){
+        escolha1.classList.remove("virar");
+        escolha2.classList.remove("virar");
+    } else {
+        setTimeout(recomeco, 1000);
+    }
+    escolha1 = undefined;
+    escolha2 = undefined;
+}
 // Recomeçar o jogo
-function recomeço(){
-    alert("Você ganhou com %{jogadas} jogadas! A duração do jogo foi de %{tempo} segundos!");
-    const reiniciar = prompt("Deseja reiniciar a partida? *sim/não*");
-    while ( reiniciar !== "sim" && reiniciar !== "não"){
-        reiniciar = prompt("Deseja reiniciar a partida? *sim/não*");
+function recomeco(){
+    clearInterval(intervalo);
+    alert('Você ganhou com ${jogadas} jogadas! A duração do jogo foi de ${tempo} segundos!');
+    /*
+    let jogoFim = document.querySelectorAll(".virar");
+    if(jogoFim.length == quantidade){
+        clearInterval(intervalo);
+        alert("Você ganhou com %{jogadas} jogadas! A duração do jogo foi de %{tempo} segundos!");
+        const reiniciar = prompt("Deseja reiniciar a partida? *sim/não*");
+        while ( reiniciar !== "sim" && reiniciar !== "não"){
+            reiniciar = prompt("Deseja reiniciar a partida? *sim/não*");
+        }
+        if (reiniciar === "sim"){
+            quantidadeCartas = prompt("Com quantas cartas você quer jogar? *de 4-14, apenas números pares*");
+            quantidade();
+        }
     }
-    if (reiniciar === "sim"){
-        quantidadeCartas = prompt("Com quantas cartas você quer jogar? *de 4-14, apenas números pares*");
-        quantidade();
-    }
+    */
 }
