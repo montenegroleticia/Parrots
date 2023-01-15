@@ -78,15 +78,9 @@ ul {
   transform-style: preserve-3d;
   transform: rotateY(180deg);
 }
-/*
-.back-face {
-  transform: rotateY(180deg);
+@midia (max-width: 365px){
+  .titulo {
+    font-size: 36px;
+    line-height: 42px;
+  }
 }
-.back-face {
-  transform: rotateY(0deg);
-}
-.front-face {
-  opacity: 1;
-  transform: rotateY(-180deg);
-}
-/* Fazendo no onclick */

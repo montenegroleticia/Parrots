@@ -16,8 +16,6 @@ const cartas =
 "./midia/unicornparrot.gif",
 "./midia/unicornparrot.gif"];
 const cartasEscolhidas = [];
-// Debugger para controlar pelo console
-debugger
 // Perguntando quantas cartas o jogador quer
 let quantidadeCartas = prompt("Com quantas cartas você quer jogar? *de 4-14, apenas números pares*");
 quantidade();
@@ -99,15 +97,23 @@ function fim(){
     if(jogoFim.length == quantidadeCartas){
         clearInterval(intervalo);
         alert('Você ganhou com ' + jogadas + ' jogadas! A duração do jogo foi de ' + tempo + ' segundos!');
+        recomeco();
     }
 }
+let novaPartida;
 function recomeco(){
-    const reiniciar = prompt("Deseja reiniciar a partida? *sim/não*");
-        while ( reiniciar !== "sim" && reiniciar !== "não"){
-            reiniciar = prompt("Deseja reiniciar a partida? *sim/não*");
-        }
-        if (reiniciar === "sim"){
-            location.reload();
-        }
+    novaPartida = prompt("Deseja reiniciar a partida? *sim/não*");
+    perguntaReiniciar();
+}
+function perguntaReiniciar(){
+    if ( novaPartida !== "sim" && novaPartida !== "não"){
+        novaPartida = prompt("Deseja reiniciar a partida? *sim/não*");
+    } else {
+        reiniciar();
+    }
+}
+function reiniciar(){
+    if (novaPartida == "sim"){
+        location.reload();
     }
 }
