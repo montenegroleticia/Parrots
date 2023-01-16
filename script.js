@@ -42,6 +42,7 @@ function criarCartas(){
     }
     distribuirCartas();
 }
+// Distribuir cartas
 function distribuirCartas(){
     let contador = 0;
     cartasEscolhidas.sort(comparador);
@@ -100,6 +101,7 @@ function fim(){
         recomeco();
     }
 }
+// Peguntar se quer nova partida
 let novaPartida;
 function recomeco(){
     novaPartida = prompt("Deseja reiniciar a partida? *sim/não*");
@@ -112,6 +114,7 @@ function perguntaReiniciar(){
         reiniciar();
     }
 }
+// Reiniciar jogo
 function reiniciar(){
     if (novaPartida == "sim"){
         location.reload();
