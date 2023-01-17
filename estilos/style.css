@@ -62,20 +62,27 @@ ul {
   align-items: center;
   justify-content: center;
   position: absolute;
-  transition: all .5s;
+  transition: all 1s ease;
   transform-style: preserve-3d;
   backface-visibility: hidden;
 }
-.front-face{
+.front-face {
   backface-visibility: hidden;
 }
-.back-face{
+.back-face {
+  transition: all 1s ease;
+  transform-style: preserve-3d;
   transform: rotateY(-180deg);
 }
-.virar{
-  transition: all .5s;
+.virar {
+  transition: all 1s ease;
   transform-style: preserve-3d;
   transform: rotateY(180deg);
+}
+.desvirar {
+  transition: all 1s ease;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
 }
 /* Versão mobile */
 @media (max-width: 335px){

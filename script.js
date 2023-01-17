@@ -73,9 +73,11 @@ function spinCard(gira){
     if (escolha1 === undefined){
         escolha1 = gira;
         gira.classList.add("virar");
+        gira.classList.remove("desvirar");
     } else if (escolha2 === undefined){
         escolha2 = gira;
         gira.classList.add("virar");
+        gira.classList.remove("desvirar");
         setTimeout(comparar, 1000);
     }
 }
@@ -85,7 +87,9 @@ function comparar(){
     let carta2 = escolha2.classList.value;
     if(carta1 !== carta2){
         escolha1.classList.remove("virar");
+        escolha1.classList.add("desvirar");
         escolha2.classList.remove("virar");
+        escolha2.classList.add("desvirar");
     } else {
         setTimeout(fim, 1000);
     }
