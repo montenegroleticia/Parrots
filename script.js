@@ -1,11 +1,10 @@
 let intervalo;
 // Array de cartas
-const cartas = 
-["./midia/bobrossparrot.gif", 
+const cartas = ["./midia/bobrossparrot.gif",
 "./midia/bobrossparrot.gif",
-"./midia/explodyparrot.gif", 
 "./midia/explodyparrot.gif",
-"./midia/fiestaparrot.gif", 
+"./midia/explodyparrot.gif",
+"./midia/fiestaparrot.gif",
 "./midia/fiestaparrot.gif",
 "./midia/metalparrot.gif",
 "./midia/metalparrot.gif",
@@ -27,7 +26,7 @@ function quantidade(){
 }
 // Criar cartas
 function criarCartas(){
-    let indice = 0 
+    let indice = 0;
     while(indice < quantidadeCartas){
         cartasEscolhidas.push(
             `<li class="card ${cartas[indice]}" data-test="card" onclick="spinCard(this)">
@@ -53,7 +52,7 @@ function distribuirCartas(){
     }
     contarTempo();
 }
-function comparador() { 
+function comparador() {
 	return Math.random() - 0.5; 
 }
 // Contar o tempo
@@ -83,8 +82,8 @@ function spinCard(gira){
 }
 // Comparar cartas
 function comparar(){
-    let carta1 = escolha1.classList.value;
-    let carta2 = escolha2.classList.value;
+    const carta1 = escolha1.classList.value;
+    const carta2 = escolha2.classList.value;
     if(carta1 !== carta2){
         escolha1.classList.remove("virar");
         escolha1.classList.add("desvirar");
@@ -98,8 +97,8 @@ function comparar(){
 }
 // Fim do jogo
 function fim(){
-    let jogoFim = document.querySelectorAll(".virar");
-    if(jogoFim.length == quantidadeCartas){
+    const jogoFim = document.querySelectorAll(".virar");
+    if(jogoFim.length === quantidadeCartas){
         clearInterval(intervalo);
         alert('Você ganhou com ' + jogadas + ' jogadas! A duração do jogo foi de ' + tempo + ' segundos!');
         recomeco();
@@ -120,7 +119,7 @@ function perguntaReiniciar(){
 }
 // Reiniciar jogo
 function reiniciar(){
-    if (novaPartida == "sim"){
+    if (novaPartida === "sim"){
         location.reload();
     }
 }

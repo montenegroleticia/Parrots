@@ -12,7 +12,7 @@ body {
 .title {
   text-align: center;
   margin-top: 40px;
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 56px;
@@ -23,7 +23,7 @@ body {
 .timer{
   width: 47px;
   color: #86BD8D;
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
