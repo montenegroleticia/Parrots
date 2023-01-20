@@ -98,7 +98,7 @@ function comparar(){
 // Fim do jogo
 function fim(){
     const jogoFim = document.querySelectorAll(".virar");
-    if(jogoFim.length === quantidadeCartas){
+    if(jogoFim.length == quantidadeCartas){
         clearInterval(intervalo);
         alert('Você ganhou com ' + jogadas + ' jogadas! A duração do jogo foi de ' + tempo + ' segundos!');
         recomeco();
@@ -119,7 +119,7 @@ function perguntaReiniciar(){
 }
 // Reiniciar jogo
 function reiniciar(){
-    if (novaPartida === "sim"){
+    if (novaPartida == "sim"){
         location.reload();
     }
 }
